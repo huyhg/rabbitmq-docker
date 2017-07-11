@@ -4,7 +4,7 @@ This image contains an installation of RabbitMQ 3.x.
 
 For more information, see the [Official Image Launcher Page](https://console.cloud.google.com/launcher/details/google/rabbitmq3).
 
-Pull command:
+Pull command (first install [gcloud](https://cloud.google.com/sdk/downloads)):
 
 ```shell
 gcloud docker -- pull launcher.gcr.io/google/rabbitmq3
@@ -32,6 +32,9 @@ Dockerfile for this image can be found [here](https://github.com/GoogleCloudPlat
 
 # <a name="using-kubernetes"></a>Using Kubernetes
 
+Consult [Launcher container documentation](https://cloud.google.com/launcher/docs/launcher-container)
+for additional information about setting up your Kubernetes environment.
+
 ## <a name="running-rabbitmq-kubernetes"></a>Running RabbitMQ
 
 ### <a name="starting-a-rabbitmq-instance-kubernetes"></a>Starting a RabbitMQ instance
@@ -56,7 +59,10 @@ spec:
           value: "unique-erlang-cookie"
 ```
 
-Run the following to expose the ports:
+Run the following to expose the ports.
+Depending on your cluster setup, this might expose your service to the
+Internet with an external IP address. For more information, consult
+[Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/).
 
 ```shell
 kubectl expose pod some-rabbitmq --name some-rabbitmq-4369 \
@@ -129,7 +135,10 @@ spec:
       storage: 5Gi
 ```
 
-Run the following to expose the ports:
+Run the following to expose the ports.
+Depending on your cluster setup, this might expose your service to the
+Internet with an external IP address. For more information, consult
+[Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/).
 
 ```shell
 kubectl expose pod some-rabbitmq --name some-rabbitmq-4369 \
@@ -143,6 +152,9 @@ kubectl expose pod some-rabbitmq --name some-rabbitmq-25672 \
 ```
 
 # <a name="using-docker"></a>Using Docker
+
+Consult [Launcher container documentation](https://cloud.google.com/launcher/docs/launcher-container)
+for additional information about setting up your Docker environment.
 
 ## <a name="running-rabbitmq-docker"></a>Running RabbitMQ
 
